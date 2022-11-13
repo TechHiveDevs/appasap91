@@ -1,0 +1,64 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DB_URL")
+}
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+model Users {
+  id        Int        @id @default(autoincrement())
+  firstname String
+  lastname  String
+  blogss    Blogs[]
+  commentss Comments[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @default(now()) @updatedAt
+}
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+model Blogs {
+  id              Int           @id @default(autoincrement())
+  title           String
+  createddatetime String
+  users           Users?        @relation(fields: [usersid], references: [id])
+  usersid         Int?
+  blogentriess    Blogentries[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @default(now()) @updatedAt
+}
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+model Blogentries {
+  id            Int        @id @default(autoincrement())
+  entrytext     String?
+  entrydatetime String
+  blogs         Blogs?     @relation(fields: [blogsid], references: [id])
+  blogsid       Int?
+  commentss     Comments[]
+  createdAt     DateTime   @default(now())
+  updatedAt     DateTime   @default(now()) @updatedAt
+}
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~
+
+model Comments {
+  id              Int          @id @default(autoincrement())
+  commentdatetime String
+  commentcontent  String
+  blogentries     Blogentries? @relation(fields: [blogentriesid], references: [id])
+  blogentriesid   Int?
+  users           Users?       @relation(fields: [usersid], references: [id])
+  usersid         Int?
+  createdAt       DateTime     @default(now())
+  updatedAt       DateTime     @default(now()) @updatedAt
+}
+
+// ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~

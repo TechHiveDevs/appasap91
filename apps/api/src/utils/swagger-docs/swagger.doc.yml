@@ -1,0 +1,328 @@
+
+  /comments:
+    get:
+     summary: Get all commentss
+     tags: [comments]
+     responses:
+       200:
+        schema:
+          $ref: '#/components/schemas/comments'
+ 
+    post:
+      summary: Create comments
+      tags: [comments]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/comments'
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/comments'
+ 
+  /comments/{id}:
+    get:
+      summary: Get comments by id
+      tags: [comments]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/comments'
+ 
+    put:
+      summary: Edit comments
+      tags: [comments]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/comments'
+      requestBody:
+        content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/comments'
+ 
+    delete:
+      summary: Delete comments
+      tags: [comments]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/comments'
+
+  /blogentries:
+    get:
+     summary: Get all blogentriess
+     tags: [blogentries]
+     responses:
+       200:
+        schema:
+          $ref: '#/components/schemas/blogentries'
+ 
+    post:
+      summary: Create blogentries
+      tags: [blogentries]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/blogentries'
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blogentries'
+ 
+  /blogentries/{id}:
+    get:
+      summary: Get blogentries by id
+      tags: [blogentries]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blogentries'
+ 
+    put:
+      summary: Edit blogentries
+      tags: [blogentries]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blogentries'
+      requestBody:
+        content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/blogentries'
+ 
+    delete:
+      summary: Delete blogentries
+      tags: [blogentries]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blogentries'
+
+  /blogs:
+    get:
+     summary: Get all blogss
+     tags: [blogs]
+     responses:
+       200:
+        schema:
+          $ref: '#/components/schemas/blogs'
+ 
+    post:
+      summary: Create blogs
+      tags: [blogs]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/blogs'
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blogs'
+ 
+  /blogs/{id}:
+    get:
+      summary: Get blogs by id
+      tags: [blogs]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blogs'
+ 
+    put:
+      summary: Edit blogs
+      tags: [blogs]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blogs'
+      requestBody:
+        content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/blogs'
+ 
+    delete:
+      summary: Delete blogs
+      tags: [blogs]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/blogs'
+
+  /users:
+    get:
+     summary: Get all userss
+     tags: [users]
+     responses:
+       200:
+        schema:
+          $ref: '#/components/schemas/users'
+ 
+    post:
+      summary: Create users
+      tags: [users]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/users'
+      responses:
+        201:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+ 
+  /users/{id}:
+    get:
+      summary: Get users by id
+      tags: [users]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        200:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+ 
+    put:
+      summary: Edit users
+      tags: [users]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+      requestBody:
+        content:
+            application/json:
+              schema:
+               $ref: '#/components/schemas/users'
+ 
+    delete:
+      summary: Delete users
+      tags: [users]
+      parameters:
+        - in: path
+          name: id
+      responses:
+        202:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/users'
+
+  components:
+    schemas:
+  
+      comments:
+        type: object
+        properties:
+      
+          id:
+            type: number
+          commentdatetime:
+            type: string
+          commentcontent:
+            type: string
+          blogentries:
+            type: string
+          users:
+            type: string
+      blogentries:
+        type: object
+        properties:
+      
+          id:
+            type: number
+          entrytext:
+            type: string
+          entrydatetime:
+            type: string
+          blogs:
+            type: string
+      blogs:
+        type: object
+        properties:
+      
+          id:
+            type: number
+          title:
+            type: string
+          createddatetime:
+            type: string
+          users:
+            type: string
+      users:
+        type: object
+        properties:
+      
+          id:
+            type: number
+          firstname:
+            type: string
+          lastname:
+            type: string
